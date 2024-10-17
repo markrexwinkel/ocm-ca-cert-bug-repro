@@ -1,0 +1,28 @@
+name: ocmcacerttest
+
+services:
+  src-registry:
+    image: registry:2
+    ports:
+      - 5000:5000
+    volumes:
+      - ./certs/1:/var/lib/registry/certs
+      - ./htpasswd1:/var/lib/registry/htpasswd
+    environment:
+      REGISTRY_HTTP_TLS_CERTIFICATE: /var/lib/registry/certs/cert.pem
+      REGISTRY_HTTP_TLS_KEY: /var/lib/registry/certs/key.pem
+      REGISTRY_AUTH_HTPASSWD_REALM: src-registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /var/lib/registry/htpasswd
+  dst-registry:
+    image: registry:2
+    ports:
+      - 5001:5000
+    volumes:
+      - ./certs/2:/var/lib/registry/certs
+      - ./htpasswd2:/var/lib/registry/htpasswd
+    environment:
+      REGISTRY_HTTP_TLS_CERTIFICATE: /var/lib/registry/certs/cert.pem
+      REGISTRY_HTTP_TLS_KEY: /var/lib/registry/certs/key.pem
+      REGISTRY_AUTH_HTPASSWD_REALM: src-registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /var/lib/registry/htpasswd
+     
