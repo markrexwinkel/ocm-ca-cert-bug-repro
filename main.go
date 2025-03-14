@@ -89,7 +89,7 @@ func buildVersion(ctx ocm.Context, caPath string) error {
 		return err
 	}
 	acc := ociartifact.New("ghcr.io/open-component-model/ocm/ocm.software/toi/installers/helminstaller/helminstaller:0.4.0")
-	err = ca.SetResource(meta, acc, cpi.ModifyResource(true))
+	err = ca.SetResource(meta, acc, cpi.ModifyElement(true))
 	if err != nil {
 		return err
 	}
