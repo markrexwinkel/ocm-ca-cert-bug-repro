@@ -1,11 +1,11 @@
 # OCM CA Cert error reproduction
 
 This repo contains code that reproduces an error when transfering a component version including its resources.
-OCM version: v0.16.0
+OCM version: v0.21.0
 
-This error did not occur when using OCM version v0.15.0.
+This error did not occur when using OCM version v0.19.0.
 
->NOTE: the checked in version references v0.15.0. The code should run without errors. Changing the version to v0.16.0 the error will occur.
+>NOTE: the checked in version references v0.19.0. The code should run without errors. Changing the version to v0.21.0 the error will occur.
 
 ## Running the code
 
